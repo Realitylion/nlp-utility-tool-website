@@ -7,7 +7,7 @@ const HomePage = () => {
     return (
         <>
             <NavBar />
-            <div className="container mx-auto p-4">
+            <div className="container mx-auto p-4 lg:w-1/2 w-full">
                 <h1 className="text-4xl font-bold mb-4">Welcome to the NLP Utility Tool</h1>
                 <p className="text-lg mb-6">Choose which NLP models you would like to explore</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
