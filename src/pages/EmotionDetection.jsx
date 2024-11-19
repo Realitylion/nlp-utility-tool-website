@@ -14,8 +14,7 @@ const EmotionDetection = () => {
             const body = {
                 model_name: modelName,
                 data: {
-                    text: inputText,
-                    confidenceThreshold: parseInt(confidenceThreshold, 10)
+                    text: inputText
                 }
             };
             console.log(body);
@@ -27,7 +26,6 @@ const EmotionDetection = () => {
                 },
                 body: JSON.stringify(body)
             });
-    
             // Handle the response from the server
             if (response.ok) {
                 const data = await response.json();

@@ -4,6 +4,8 @@ import { useRoutes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import EmotionDetection from "./pages/EmotionDetection";
 import TextSummarization from "./pages/TextSummarization";
+import TextCategorization from "./pages/TextCategorization";
+import KeywordExtraction from "./pages/KeywordExtraction";
 import NotFoundPage from "./pages/404";
 import Docs from "./pages/Docs";
 import TrainModels from "./pages/TrainModels";
@@ -26,6 +28,18 @@ const ProjectRoutes = () => {
             path: "text-summarization",
             element: (
                 <TextSummarization />
+            ),
+        },
+        {
+            path: "text-categorization",
+            element: (
+                <TextCategorization />
+            ),
+        },
+        {
+            path: "keyword-extraction",
+            element: (
+                <KeywordExtraction />
             ),
         },
         {

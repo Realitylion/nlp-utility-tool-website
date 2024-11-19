@@ -16,7 +16,7 @@ const HomePage = () => {
                     <button onClick={() => navigate('/text-summarization')} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Text Summarization</button>
                     <button onClick={() => navigate('/prompt-categorization')} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Prompt Categorization</button>
                     <button onClick={() => navigate('/text-categorization')} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Text Categorization</button>
-                    <button onClick={() => navigate('/keyword-identification')} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Keyword Identification</button>
+                    <button onClick={() => navigate('/keyword-extraction')} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Keyword Identification</button>
                 </div>
             </div>
         </>
