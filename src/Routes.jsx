@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import EmotionDetection from "./pages/EmotionDetection";
 import TextSummarization from "./pages/TextSummarization";
 import NotFoundPage from "./pages/404";
+import Docs from "./pages/Docs";
+import TrainModels from "./pages/TrainModels";
 
 const ProjectRoutes = () => {
     let routes = useRoutes([
@@ -24,6 +26,18 @@ const ProjectRoutes = () => {
             path: "text-summarization",
             element: (
                 <TextSummarization />
+            ),
+        },
+        {
+            path: "docs",
+            element: (
+                <Docs />
+            ),
+        },
+        {
+            path: "trainmodels",
+            element: (
+                <TrainModels />
             ),
         },
         {
