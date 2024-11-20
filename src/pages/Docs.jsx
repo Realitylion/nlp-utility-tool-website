@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 
 const Docs = () => {
-    const [selectedOption, setSelectedOption] = useState('emotionDetection');
+    const [selectedOption, setSelectedOption] = useState('');
 
     const EmotionDetection = () => {
         return (
@@ -201,6 +201,128 @@ export default EmotionDetectionInstructions;`}
         );
     };
 
+    const TextClassification = () => {
+        return (
+            <div className="p-4">
+                <h2 className="text-2xl font-bold mb-4">Text Classification API</h2>
+                <p className="mb-4">To make a POST request to the Text Classification API, follow the instructions below:</p>
+                <h3 className="text-xl font-semibold mb-2">Endpoint</h3>
+                <p className="mb-4"><code className="bg-gray-200 p-1 rounded break-all">POST /predict/sentimentAnalysis</code></p>
+                <h3 className="text-xl font-semibold mb-2">Request Body</h3>
+                <p className="mb-4">The request body should be a JSON object with the following structure:</p>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`{
+    "model_name": "model_name_here",
+    "data": {
+        "text": "Your text here"
+    }   
+}`}
+                    </code>
+                </pre>
+                <h3 className="text-xl font-semibold mb-2">Example Request</h3>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`fetch('/predict/sentimentAnalysis', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "model_name": "lstm_sentiment_classifier",
+        "data": {
+            "text": "I love this product!"
+        }
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));`}
+                    </code>
+                </pre>
+                <h3 className="text-xl font-semibold mb-2">Response Structure</h3>
+                <p className="mb-4">The response will be a JSON object with the following structure:</p>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`{
+    "data": "Your input text here",
+    "result": "Predicted sentiment here"
+}`}
+                    </code>
+                </pre>
+                <h3 className="text-xl font-semibold mb-2">Example Response</h3>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`{
+    "data": "I love this product!",
+    "result": "positive"
+}`}
+                    </code>
+                </pre>
+            </div>
+        );
+    };
+
+    const KeywordExtraction = () => {
+        return (
+            <div className="p-4">
+                <h2 className="text-2xl font-bold mb-4">Keyword Extraction API</h2>
+                <p className="mb-4">To make a POST request to the Keyword Extraction API, follow the instructions below:</p>
+                <h3 className="text-xl font-semibold mb-2">Endpoint</h3>
+                <p className="mb-4"><code className="bg-gray-200 p-1 rounded break-all">POST /noun/nounExtraction</code></p>
+                <h3 className="text-xl font-semibold mb-2">Request Body</h3>
+                <p className="mb-4">The request body should be a JSON object with the following structure:</p>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`{
+    "data": {
+        "text": "Your text here"
+    }
+}`}
+                    </code>
+                </pre>
+                <h3 className="text-xl font-semibold mb-2">Example Request</h3>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`fetch('/noun/nounExtraction', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "data": {
+            "text": "The quick brown fox jumps over the lazy dog."
+        }
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));`}
+                    </code>
+                </pre>
+                <h3 className="text-xl font-semibold mb-2">Response Structure</h3>
+                <p className="mb-4">The response will be a JSON object with the following structure:</p>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>  
+{`{
+    "data": "Your input text here",
+    "result": ["keyword1", "keyword2", "keyword3"]
+}`}
+                    </code>
+                </pre>
+                <h3 className="text-xl font-semibold mb-2">Example Response</h3>
+                <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <code>
+{`{
+    "data": "The quick brown fox jumps over the lazy dog.",
+    "result": ["quick", "brown", "fox", "jumps", "lazy", "dog"]
+}`}
+                    </code>
+                </pre>
+            </div>
+        );
+    };
+
     const renderContent = () => {
         switch (selectedOption) {
             case 'emotionDetection':
@@ -212,9 +334,9 @@ export default EmotionDetectionInstructions;`}
             case 'promptClassification':
                 return <div>Prompt Classification API: Placeholder content</div>;
             case 'textClassification':
-                return <div>Text Classification API: Placeholder content</div>;
+                return <TextClassification />;
             case 'keywordExtraction':
-                return <div>Keyword Extraction API: Placeholder content</div>;
+                return <KeywordExtraction />;
             default:
                 return <div>Select an option from the sidebar</div>;
         }

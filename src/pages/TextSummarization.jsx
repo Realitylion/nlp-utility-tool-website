@@ -45,7 +45,7 @@ const TextSummarization = () => {
         <>
             <NavBar />
             <div className="container mx-auto p-4 lg:w-1/2 w-full">
-                <h1 className="text-2xl font-bold mb-4">Emotion Detection</h1>
+                <h1 className="text-2xl font-bold mb-4">Text Summarization</h1>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Model Name:</label>
