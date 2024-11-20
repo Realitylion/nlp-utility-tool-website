@@ -14,7 +14,8 @@ const EmotionDetection = () => {
             const body = {
                 model_name: modelName,
                 data: {
-                    text: inputText
+                    text: inputText,
+                    confidenceThreshold: parseInt(confidenceThreshold, 10) 
                 }
             };
             console.log(body);
